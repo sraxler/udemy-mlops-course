@@ -1,0 +1,25 @@
+# for prepare_data
+data:
+  csv_file_path: ./archive/imdb-dataset.csv
+  test_set_ratio: 0.3
+  train_csv_save_path: ./archive/train.csv
+  test_csv_save_path: ./archive/test.csv
+
+# for make_features
+features:
+  # vectorizer: count-vectorizer
+  vectorizer: tfidf-vectorizer # convert text into features. from scikit-learn
+  train_features_save_path: ./archive/train.joblib
+  test_features_save_path: ./archive/test.joblib
+
+# for train.py - logisitc regression model
+train:
+  penalty: l2
+  C: 1.0
+  solver: lbfgs
+  model_save_path: ./archive/model.joblib
+
+evaluate:
+  # metric: f1_score
+  metric: accuracy
+  results_save_path: ./archive/results.yaml
