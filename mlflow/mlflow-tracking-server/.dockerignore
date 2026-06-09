@@ -1,0 +1,6 @@
+*
+
+# ignore everything except these 3
+!docker
+!pyproject.toml
+!poetry.lock
