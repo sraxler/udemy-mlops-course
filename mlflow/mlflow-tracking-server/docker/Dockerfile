@@ -10,7 +10,6 @@ ENV \
     DEBIAN_FRONTEND='noninteractive' \
     BUILD_POETRY_LOCK="${HOME}/poetry.lock.build"
 
-# instal git
 RUN apt-get -qq update \
     && apt-get -qq -y install git \
     && rm -rf /var/lib/apt/lists/* \
@@ -21,7 +20,6 @@ RUN mkdir -p "${MLFLOW_ARTIFACT_STORE}" /app
 COPY ./docker/run-server.sh /
 RUN chmod +x /run-server.sh
 
-# install poetry
 RUN HOME=/tmp pip install --no-cache-dir poetry==1.5.1
 
 COPY ./pyproject.toml ./*.lock /app/

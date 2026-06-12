@@ -10,6 +10,8 @@ services:
     image: postgres:13.3
     env_file:
       - .envs/.postgres
+    volumes:
+      - postgresql-data:/var/lib/postgresql/data
 
   mlflow-server:
     image: local-mlflow-tracking-server
